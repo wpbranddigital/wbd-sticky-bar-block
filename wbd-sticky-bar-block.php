@@ -7,7 +7,7 @@
  * Requires PHP:      7.4
  * Author:            WPBrand Digital
  * Author URI:        https://wpbranddigital.org
- * License:           GPLv2 or later
+ * License:           GPLv2 or laterc
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       wbd-sticky-bar-block
  * Domain Path:       /languages
@@ -32,7 +32,6 @@ require_once STICKY_BAR_BLOCK_PATH . 'includes/render.php';
  * @return void
  */
 function sticky_bar_block_register_block() {
-	load_plugin_textdomain( 'wbd-sticky-bar-block', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	register_block_type( STICKY_BAR_BLOCK_PATH . 'build/sticky-bar' );
 }
 add_action( 'init', 'sticky_bar_block_register_block' );
