@@ -1,0 +1,201 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sticky-bar-block/sticky-bar",
+  "version": "1.0.0",
+  "title": "Sticky Bar",
+  "category": "design",
+  "description": "Create a sticky announcement, promotion, or call-to-action bar.",
+  "keywords": [
+    "announcement",
+    "notification",
+    "banner",
+    "promotion",
+    "cta"
+  ],
+  "textdomain": "wbd-sticky-bar-block",
+  "attributes": {
+    "barId": {
+      "type": "string",
+      "default": ""
+    },
+    "preset": {
+      "type": "string",
+      "default": ""
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "top",
+        "bottom"
+      ],
+      "default": "top"
+    },
+    "offset": {
+      "type": "number",
+      "default": 0
+    },
+    "zIndex": {
+      "type": "number",
+      "default": 999
+    },
+    "adminBarOffset": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentJustification": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right",
+        "space-between"
+      ],
+      "default": "center"
+    },
+    "gap": {
+      "type": "number",
+      "default": 16
+    },
+    "contentMaxWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "stackOnMobile": {
+      "type": "boolean",
+      "default": true
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "showCta": {
+      "type": "boolean",
+      "default": true
+    },
+    "ctaText": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaTextColor": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaBorderRadius": {
+      "type": "number",
+      "default": 4
+    },
+    "ctaPaddingY": {
+      "type": "number",
+      "default": 8
+    },
+    "ctaPaddingX": {
+      "type": "number",
+      "default": 16
+    },
+    "ctaFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaFontWeight": {
+      "type": "string",
+      "default": ""
+    },
+    "showClose": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeIconSize": {
+      "type": "number",
+      "default": 20
+    },
+    "closeIconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "dismissMemory": {
+      "type": "string",
+      "enum": [
+        "none",
+        "session",
+        "local"
+      ],
+      "default": "session"
+    },
+    "hideOnDesktop": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnMobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "animation": {
+      "type": "string",
+      "enum": [
+        "none",
+        "fade",
+        "slide"
+      ],
+      "default": "slide"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true,
+      "__experimentalFontWeight": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "shadow": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

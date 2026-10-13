@@ -1,0 +1,444 @@
+# Copyright (C) 2026 bPlugins
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sticky Bar Block 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wbd-sticky-bar-block\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-28T12:15:19+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: custom\n"
+"X-Domain: wbd-sticky-bar-block\n"
+
+#: includes/render.php:45
+msgid "Announcement"
+msgstr ""
+
+#: includes/render.php:132
+msgid "(opens in a new tab)"
+msgstr ""
+
+#. translators: %s: accessible name of the bar, e.g. "Announcement".
+#: includes/render.php:157
+#, php-format
+msgid "Close %s"
+msgstr ""
+
+#: src/sticky-bar/edit.js:39
+msgid "Write your announcement…"
+msgstr ""
+
+#: src/sticky-bar/edit.js:51
+msgid "Default"
+msgstr ""
+
+#: src/sticky-bar/edit.js:52
+msgid "Regular (400)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:53
+msgid "Medium (500)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:54
+msgid "Semi-bold (600)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:55
+msgid "Bold (700)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:56
+msgid "Extra-bold (800)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:157
+msgid "desktop"
+msgstr ""
+
+#: src/sticky-bar/edit.js:158
+msgid "tablet"
+msgstr ""
+
+#: src/sticky-bar/edit.js:159
+msgid "mobile"
+msgstr ""
+
+#: src/sticky-bar/edit.js:164
+#: src/sticky-bar/edit.js:228
+msgid "Top"
+msgstr ""
+
+#: src/sticky-bar/edit.js:165
+#: src/sticky-bar/edit.js:232
+msgid "Bottom"
+msgstr ""
+
+#. translators: %s: bar position, e.g. Top or Bottom.
+#: src/sticky-bar/edit.js:169
+#, php-format
+msgid "Sticky bar · %s"
+msgstr ""
+
+#. translators: %s: comma-separated list of devices.
+#: src/sticky-bar/edit.js:177
+#, php-format
+msgid "Hidden on %s"
+msgstr ""
+
+#: src/sticky-bar/edit.js:202
+msgid "Stick to top"
+msgstr ""
+
+#: src/sticky-bar/edit.js:208
+msgid "Stick to bottom"
+msgstr ""
+
+#: src/sticky-bar/edit.js:219
+msgid "Sticky settings"
+msgstr ""
+
+#: src/sticky-bar/edit.js:224
+msgid "Position"
+msgstr ""
+
+#: src/sticky-bar/edit.js:243
+msgid "Offset (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:244
+msgid "Distance from the edge of the screen."
+msgstr ""
+
+#: src/sticky-bar/edit.js:258
+msgid "Z-index"
+msgstr ""
+
+#: src/sticky-bar/edit.js:259
+msgid "Raise this only if the bar appears behind other elements."
+msgstr ""
+
+#: src/sticky-bar/edit.js:273
+msgid "Stay below the admin toolbar"
+msgstr ""
+
+#: src/sticky-bar/edit.js:277
+msgid "Adds space for the WordPress toolbar when you are logged in."
+msgstr ""
+
+#: src/sticky-bar/edit.js:290
+msgid "Entrance animation"
+msgstr ""
+
+#: src/sticky-bar/edit.js:291
+msgid "Animations are turned off for visitors who prefer reduced motion."
+msgstr ""
+
+#: src/sticky-bar/edit.js:298
+msgid "None"
+msgstr ""
+
+#: src/sticky-bar/edit.js:302
+msgid "Fade"
+msgstr ""
+
+#: src/sticky-bar/edit.js:306
+msgid "Slide"
+msgstr ""
+
+#: src/sticky-bar/edit.js:317
+msgid "Layout"
+msgstr ""
+
+#: src/sticky-bar/edit.js:323
+msgid "Content alignment"
+msgstr ""
+
+#: src/sticky-bar/edit.js:327
+msgid "Left"
+msgstr ""
+
+#: src/sticky-bar/edit.js:331
+msgid "Center"
+msgstr ""
+
+#: src/sticky-bar/edit.js:335
+msgid "Right"
+msgstr ""
+
+#: src/sticky-bar/edit.js:339
+msgid "Space between"
+msgstr ""
+
+#: src/sticky-bar/edit.js:353
+msgid "Gap (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:364
+msgid "Content max width (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:368
+msgid "Set to 0 to use the full width."
+msgstr ""
+
+#: src/sticky-bar/edit.js:382
+msgid "Stack on mobile"
+msgstr ""
+
+#: src/sticky-bar/edit.js:391
+msgid "Call to action"
+msgstr ""
+
+#: src/sticky-bar/edit.js:396
+msgid "Show button"
+msgstr ""
+
+#: src/sticky-bar/edit.js:405
+msgid "Edit the button text directly in the bar."
+msgstr ""
+
+#: src/sticky-bar/edit.js:413
+msgid "URL"
+msgstr ""
+
+#: src/sticky-bar/edit.js:425
+msgid "Add a URL to display the button on your site."
+msgstr ""
+
+#: src/sticky-bar/edit.js:433
+msgid "Open in new tab"
+msgstr ""
+
+#: src/sticky-bar/edit.js:445
+msgid "Border radius (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:461
+msgid "Vertical padding (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:475
+msgid "Horizontal padding (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:502
+msgid "Font weight"
+msgstr ""
+
+#: src/sticky-bar/edit.js:518
+msgid "Button colors"
+msgstr ""
+
+#: src/sticky-bar/edit.js:522
+msgid "Background"
+msgstr ""
+
+#: src/sticky-bar/edit.js:530
+msgid "Text"
+msgstr ""
+
+#: src/sticky-bar/edit.js:542
+msgid "Close button"
+msgstr ""
+
+#: src/sticky-bar/edit.js:547
+msgid "Show close button"
+msgstr ""
+
+#: src/sticky-bar/edit.js:558
+msgid "Icon size (px)"
+msgstr ""
+
+#: src/sticky-bar/edit.js:574
+msgid "After closing"
+msgstr ""
+
+#: src/sticky-bar/edit.js:581
+msgid "Show again on next page load"
+msgstr ""
+
+#: src/sticky-bar/edit.js:588
+msgid "Keep hidden for the browser session"
+msgstr ""
+
+#: src/sticky-bar/edit.js:595
+msgid "Keep hidden on this device"
+msgstr ""
+
+#: src/sticky-bar/edit.js:612
+msgid "Close icon color"
+msgstr ""
+
+#: src/sticky-bar/edit.js:616
+msgid "Icon"
+msgstr ""
+
+#: src/sticky-bar/edit.js:628
+msgid "Visibility"
+msgstr ""
+
+#: src/sticky-bar/edit.js:633
+msgid "Hide on desktop"
+msgstr ""
+
+#: src/sticky-bar/edit.js:634
+msgid "Screens wider than 1024px."
+msgstr ""
+
+#: src/sticky-bar/edit.js:645
+msgid "Hide on tablet"
+msgstr ""
+
+#: src/sticky-bar/edit.js:646
+msgid "Screens 600px–1024px wide."
+msgstr ""
+
+#: src/sticky-bar/edit.js:657
+msgid "Hide on mobile"
+msgstr ""
+
+#: src/sticky-bar/edit.js:658
+msgid "Screens narrower than 600px."
+msgstr ""
+
+#: src/sticky-bar/edit.js:670
+msgid "Accessibility"
+msgstr ""
+
+#: src/sticky-bar/edit.js:676
+msgid "Region label"
+msgstr ""
+
+#: src/sticky-bar/edit.js:677
+msgid "Announced by screen readers. Defaults to “Announcement”."
+msgstr ""
+
+#: src/sticky-bar/edit.js:699
+msgid "Button text"
+msgstr ""
+
+#: src/sticky-bar/edit.js:703
+msgid "Add text…"
+msgstr ""
+
+#: src/sticky-bar/variations.js:10
+msgid "Announcement Bar"
+msgstr ""
+
+#: src/sticky-bar/variations.js:11
+msgid "A sticky bar for news and announcements."
+msgstr ""
+
+#: src/sticky-bar/variations.js:20
+msgid "Learn More"
+msgstr ""
+
+#: src/sticky-bar/variations.js:31
+msgid "📢 We just launched something new!"
+msgstr ""
+
+#: src/sticky-bar/variations.js:41
+msgid "Promotion Bar"
+msgstr ""
+
+#: src/sticky-bar/variations.js:42
+msgid "Highlight a sale or limited-time offer."
+msgstr ""
+
+#: src/sticky-bar/variations.js:50
+#: src/sticky-bar/variations.js:117
+msgid "Shop Now"
+msgstr ""
+
+#: src/sticky-bar/variations.js:66
+#, php-format
+msgid "🔥 Get 30% Off — Limited Time"
+msgstr ""
+
+#: src/sticky-bar/variations.js:76
+msgid "CTA Bar"
+msgstr ""
+
+#: src/sticky-bar/variations.js:77
+msgid "Drive visitors to a single call to action."
+msgstr ""
+
+#: src/sticky-bar/variations.js:85
+msgid "Get Started"
+msgstr ""
+
+#: src/sticky-bar/variations.js:98
+msgid "🚀 Build Faster with Gutenberg"
+msgstr ""
+
+#: src/sticky-bar/variations.js:108
+msgid "Free Shipping Bar"
+msgstr ""
+
+#: src/sticky-bar/variations.js:109
+msgid "Let shoppers know about free shipping."
+msgstr ""
+
+#: src/sticky-bar/variations.js:128
+msgid "🚚 Free Shipping on Orders Over $50"
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block title"
+msgid "Sticky Bar"
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block description"
+msgid "Create a sticky announcement, promotion, or call-to-action bar."
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block keyword"
+msgid "announcement"
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block keyword"
+msgid "notification"
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block keyword"
+msgid "banner"
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block keyword"
+msgid "promotion"
+msgstr ""
+
+#: src/sticky-bar/block.json
+msgctxt "block keyword"
+msgid "cta"
+msgstr ""
+
+#. Name of the plugin
+#: wbd-sticky-bar-block.php
+msgid "Sticky Bar Block"
+msgstr ""
+
+#. Description of the plugin
+#: wbd-sticky-bar-block.php
+msgid "Create sticky announcement, promotion, and CTA bars directly in the WordPress Block Editor."
+msgstr ""
+
+#. Author of the plugin
+#: wbd-sticky-bar-block.php
+msgid "bPlugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: wbd-sticky-bar-block.php
+msgid "https://bplugins.com"
+msgstr ""

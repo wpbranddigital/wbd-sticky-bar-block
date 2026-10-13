@@ -1,0 +1,272 @@
+/**
+ * Sticky Bar — frontend and editor shared styles.
+ * Loaded only on pages that contain the block.
+ */
+
+// Breakpoints match WordPress core (mobile < 600px, tablet 600–1024px).
+$sbb-mobile-max: 599px;
+$sbb-tablet-min: 600px;
+$sbb-tablet-max: 1024px;
+$sbb-desktop-min: 1025px;
+
+// Low-specificity defaults so block supports (colors, spacing,
+// typography) always win.
+:where(.wp-block-sticky-bar-block-sticky-bar) {
+	background-color: #1e1e1e;
+	color: #fff;
+	padding: 10px 16px;
+	font-size: 15px;
+	line-height: 1.4;
+}
+
+.wp-block-sticky-bar-block-sticky-bar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: var(--sbb-z-index, 999);
+	display: flex;
+	align-items: center;
+	gap: var(--sbb-gap, 16px);
+	box-sizing: border-box;
+
+	&.sbb-position-top {
+		top: var(--sbb-offset, 0);
+	}
+
+	&.sbb-position-bottom {
+		bottom: var(--sbb-offset, 0);
+	}
+
+	&[hidden] {
+		display: none !important;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+	}
+
+	.screen-reader-text {
+		border: 0;
+		clip-path: inset(50%);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+		word-wrap: normal !important;
+	}
+}
+
+// Neutralise theme layout margins/widths without overriding user margins,
+// which are applied inline by block supports.
+:root .wp-block-sticky-bar-block-sticky-bar {
+	margin-block: 0;
+	// Constrained theme layouts cap child widths; the bar spans the viewport.
+	max-width: none;
+	width: auto;
+}
+
+// Keep top bars below the WordPress admin toolbar.
+body.admin-bar .wp-block-sticky-bar-block-sticky-bar.sbb-has-admin-bar-offset {
+	top: calc(var(--sbb-offset, 0px) + var(--wp-admin--admin-bar--height, 32px));
+}
+
+// Below 600px the admin toolbar scrolls away with the page.
+@media screen and (max-width: $sbb-mobile-max) {
+
+	body.admin-bar .wp-block-sticky-bar-block-sticky-bar.sbb-has-admin-bar-offset {
+		top: var(--sbb-offset, 0);
+	}
+}
+
+.sbb-inner {
+	flex: 1 1 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: var(--sbb-gap, 16px);
+	min-width: 0;
+	max-width: var(--sbb-content-max-width, none);
+	margin-inline: auto;
+	width: 100%;
+
+	.sbb-justify-left & {
+		justify-content: flex-start;
+	}
+
+	.sbb-justify-right & {
+		justify-content: flex-end;
+	}
+
+	.sbb-justify-space-between & {
+		justify-content: space-between;
+	}
+}
+
+.wp-block-sticky-bar-block-sticky-bar .sbb-content {
+	min-width: 0;
+
+	> * {
+		margin-block: 0;
+	}
+
+	> * + * {
+		margin-block-start: 0.25em;
+	}
+}
+
+.wp-block-sticky-bar-block-sticky-bar .sbb-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	padding: 8px 16px;
+	border: 0;
+	border-radius: 4px;
+	background-color: #fff;
+	color: #1e1e1e;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: filter 0.15s ease;
+
+	&:hover {
+		filter: brightness(0.92);
+		text-decoration: underline;
+	}
+}
+
+.wp-block-sticky-bar-block-sticky-bar .sbb-close {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	min-height: 24px;
+	margin: 0;
+	padding: 4px;
+	border: 0;
+	border-radius: 2px;
+	background: transparent;
+	color: inherit;
+	line-height: 0;
+	cursor: pointer;
+
+	&[hidden] {
+		display: none;
+	}
+
+	svg {
+		display: block;
+		fill: currentcolor;
+	}
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+// Visible two-tone focus ring that works on any background color.
+.wp-block-sticky-bar-block-sticky-bar .sbb-cta:focus-visible,
+.wp-block-sticky-bar-block-sticky-bar .sbb-close:focus-visible {
+	outline: 2px solid transparent; // Shown in Windows high contrast mode.
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1e1e1e;
+}
+
+@media screen and (max-width: $sbb-mobile-max) {
+
+	.sbb-stack-on-mobile .sbb-inner {
+		flex-direction: column;
+		gap: calc(var(--sbb-gap, 16px) / 2);
+		text-align: center;
+	}
+}
+
+// Responsive visibility.
+@media screen and (min-width: $sbb-desktop-min) {
+
+	.wp-block-sticky-bar-block-sticky-bar.sbb-hide-on-desktop {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: $sbb-tablet-min) and (max-width: $sbb-tablet-max) {
+
+	.wp-block-sticky-bar-block-sticky-bar.sbb-hide-on-tablet {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width: $sbb-mobile-max) {
+
+	.wp-block-sticky-bar-block-sticky-bar.sbb-hide-on-mobile {
+		display: none !important;
+	}
+}
+
+// Animations (entrance uses fill-mode "backwards" so the resting state is
+// the element's normal styles).
+@keyframes sbb-fade-in {
+
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes sbb-slide-in-top {
+
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+}
+
+@keyframes sbb-slide-in-bottom {
+
+	from {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+}
+
+.sbb-animation-fade {
+	animation: sbb-fade-in 0.3s ease-out backwards;
+}
+
+.sbb-animation-slide.sbb-position-top {
+	animation: sbb-slide-in-top 0.35s ease-out backwards;
+}
+
+.sbb-animation-slide.sbb-position-bottom {
+	animation: sbb-slide-in-bottom 0.35s ease-out backwards;
+}
+
+.wp-block-sticky-bar-block-sticky-bar.sbb-is-dismissing {
+	animation: none;
+	opacity: 0;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+
+	&.sbb-animation-slide.sbb-position-top {
+		transform: translateY(-100%);
+	}
+
+	&.sbb-animation-slide.sbb-position-bottom {
+		transform: translateY(100%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-sticky-bar-block-sticky-bar,
+	.wp-block-sticky-bar-block-sticky-bar.sbb-is-dismissing,
+	.sbb-cta {
+		animation: none !important;
+		transition: none !important;
+	}
+}

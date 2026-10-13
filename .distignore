@@ -1,0 +1,7 @@
+node_modules
+.git
+.gitignore
+.distignore
+package-lock.json
+README.md
+*.zip

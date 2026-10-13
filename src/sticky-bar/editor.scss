@@ -1,0 +1,59 @@
+/**
+ * Editor-only styles: show the bar inline where it is placed instead of
+ * fixing it to the viewport, so it never covers the editing canvas.
+ */
+.wp-block-sticky-bar-block-sticky-bar.sbb-editor-preview {
+	position: relative;
+	top: auto;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	z-index: auto;
+	animation: none;
+
+	.sbb-content {
+		flex: 0 1 auto;
+		min-width: 120px;
+	}
+
+	.sbb-cta {
+		cursor: text;
+		min-width: 3em;
+	}
+
+	.sbb-close {
+		cursor: default;
+	}
+}
+
+.sbb-editor-badge {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	padding: 2px 8px;
+	background: #1e1e1e;
+	color: #fff;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
+	white-space: nowrap;
+	pointer-events: none;
+	border-radius: 2px 2px 0 0;
+}
+
+.sbb-url-control {
+	margin-bottom: 16px;
+
+	.block-editor-url-input input[type="text"] {
+		width: 100%;
+	}
+}
+
+.sbb-help {
+	margin-top: 0;
+	color: #757575;
+	font-size: 12px;
+}
