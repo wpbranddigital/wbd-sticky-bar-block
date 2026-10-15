@@ -1,1 +1,87 @@
-!function(){const e="sticky-bar-block:dismissed:",t=e=>{e.hidden=!0,e.classList.remove("sbb-is-dismissing")},s=s=>{const n=s.querySelector(".sbb-close");if(!n)return;const o=s.dataset.sbbMemory,i="session"===o||"local"===o?(t=>{try{const s="local"===t?window.localStorage:window.sessionStorage,n=e+"probe";return s.setItem(n,"1"),s.removeItem(n),s}catch(e){return null}})(o):null,c=e+(s.dataset.sbbId||"")+":"+(e=>{let t=5381;for(let s=0;s<e.length;s++)t=(t<<5)+t+e.charCodeAt(s)|0;return(t>>>0).toString(36)})(s.textContent.trim());if(i&&"1"===i.getItem(c))return void t(s);const d=()=>{if(i)try{i.setItem(c,"1")}catch(e){}window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches||s.classList.contains("sbb-animation-none")?t(s):(s.classList.add("sbb-is-dismissing"),window.setTimeout(()=>t(s),260))};n.hidden=!1,n.addEventListener("click",d),s.addEventListener("keydown",e=>{"Escape"===e.key&&d()})},n=()=>{document.querySelectorAll(".wp-block-sticky-bar-block-sticky-bar").forEach(s)};"loading"===document.readyState?document.addEventListener("DOMContentLoaded",n):n()}();
+/******/ (() => { // webpackBootstrap
+/*!********************************!*\
+  !*** ./src/sticky-bar/view.js ***!
+  \********************************/
+/**
+ * Sticky Bar — frontend behaviour.
+ *
+ * Only handles the close button: reveals it (it is `hidden` in the markup
+ * so it never appears without JavaScript), dismisses the bar, and
+ * optionally remembers the dismissal in session/local storage.
+ */
+(function () {
+  const STORAGE_PREFIX = 'sticky-bar-block:dismissed:';
+  const prefersReducedMotion = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const getStorage = type => {
+    try {
+      const storage = 'local' === type ? window.localStorage : window.sessionStorage;
+      const probe = STORAGE_PREFIX + 'probe';
+      storage.setItem(probe, '1');
+      storage.removeItem(probe);
+      return storage;
+    } catch (e) {
+      return null;
+    }
+  };
+
+  // Small string hash so editing a bar's text shows it again.
+  const hash = str => {
+    let h = 5381;
+    for (let i = 0; i < str.length; i++) {
+      h = (h << 5) + h + str.charCodeAt(i) | 0; // eslint-disable-line no-bitwise
+    }
+    return (h >>> 0).toString(36); // eslint-disable-line no-bitwise
+  };
+  const hide = bar => {
+    bar.hidden = true;
+    bar.classList.remove('sbb-is-dismissing');
+  };
+  const init = bar => {
+    const button = bar.querySelector('.sbb-close');
+    if (!button) {
+      return;
+    }
+    const memory = bar.dataset.sbbMemory;
+    const storage = 'session' === memory || 'local' === memory ? getStorage(memory) : null;
+    const key = STORAGE_PREFIX + (bar.dataset.sbbId || '') + ':' + hash(bar.textContent.trim());
+    if (storage && '1' === storage.getItem(key)) {
+      hide(bar);
+      return;
+    }
+    const dismiss = () => {
+      if (storage) {
+        try {
+          storage.setItem(key, '1');
+        } catch (e) {
+          // Storage full or blocked: dismiss for this page view only.
+        }
+      }
+      if (prefersReducedMotion() || bar.classList.contains('sbb-animation-none')) {
+        hide(bar);
+        return;
+      }
+      bar.classList.add('sbb-is-dismissing');
+      window.setTimeout(() => hide(bar), 260);
+    };
+    button.hidden = false;
+    button.addEventListener('click', dismiss);
+
+    // Escape closes the bar when focus is inside it.
+    bar.addEventListener('keydown', event => {
+      if ('Escape' === event.key) {
+        dismiss();
+      }
+    });
+  };
+  const run = () => {
+    document.querySelectorAll('.wp-block-sticky-bar-block-sticky-bar').forEach(init);
+  };
+  if ('loading' === document.readyState) {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+/******/ })()
+;
+//# sourceMappingURL=view.js.map
