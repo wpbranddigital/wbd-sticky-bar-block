@@ -1,13 +1,13 @@
-=== WBD Sticky Bar Block ===
+=== NoticeBar Sticky Banner Block ===
 Contributors: wpbranddigital25
 Tags: sticky bar, announcement bar, notification bar, promotion, cta
 Requires at least: 6.5
-Tested up to: 7.1
+Tested up to: 6.7
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-
+ 
 Create sticky announcement, promotion, and CTA bars directly in the WordPress Block Editor.
 
 == Description ==
@@ -46,19 +46,20 @@ Everything is edited visually in Gutenberg: write your message, add a button, ch
 == Development ==
 
 Public source code repository:
-https://github.com/wpbranddigital/wbd-sticky-bar-block
+https://github.com/wpbranddigital/noticebar-sticky-banner-block
 
 Build Instructions:
 
 1. npm install
 2. npm run build
 3. npm run start (development)
-WBD Sticky Bar Block is built using @wordpress/scripts.
+
+NoticeBar Sticky Banner Block is built using @wordpress/scripts.
 
 
 == Installation ==
 
-1. Upload the `wbd-sticky-bar-block` folder to `/wp-content/plugins/`, or install the plugin from the **Plugins → Add New** screen.
+1. Upload the `noticebar-sticky-banner-block` folder to `/wp-content/plugins/`, or install the plugin from the **Plugins → Add New** screen.
 2. Activate the plugin through the **Plugins** screen.
 3. Edit a post, page or template, open the block inserter and add **Sticky Bar** (or one of the presets) from the **Design** category.
 

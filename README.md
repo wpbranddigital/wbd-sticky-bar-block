@@ -1,9 +1,9 @@
-# Sticky Bar Block
+# NoticeBar Sticky Banner Block
 
 Create sticky announcement, promotion, and CTA bars directly in the WordPress Block Editor.
 
 - **Block:** `sticky-bar-block/sticky-bar` (category: Design)
-- **Requires:** WordPress 6.6+, PHP 7.4+
+- **Requires:** WordPress 6.5+, PHP 7.4+
 - **License:** GPL-2.0-or-later
 
 ## Development
@@ -14,7 +14,7 @@ npm run start       # watch mode
 npm run build       # production build into /build
 npm run lint:js
 npm run lint:css
-npm run plugin-zip  # creates wbd-sticky-bar-block.zip for WordPress.org
+npm run plugin-zip  # creates noticebar-sticky-banner-block.zip for WordPress.org
 ```
 
 Source lives in `src/sticky-bar/`; the plugin loads the compiled block from `build/sticky-bar/`.
@@ -22,23 +22,23 @@ Source lives in `src/sticky-bar/`; the plugin loads the compiled block from `bui
 ## Structure
 
 ```
-wbd-sticky-bar-block/
-├── wbd-sticky-bar-block.php Plugin bootstrap, registers the block from build/
+noticebar-sticky-banner-block/
+├── noticebar-sticky-banner-block.php Plugin bootstrap, registers the block from build/
 ├── includes/
-│   ├── helpers.php          Attribute validation (colors, sizes, enums, ints)
-│   └── render.php           sticky_bar_block_render(): escaped frontend markup
+│   ├── helpers.php                   Attribute validation (colors, sizes, enums, ints)
+│   └── render.php                    nsbb_render(): escaped frontend markup
 ├── src/sticky-bar/
-│   ├── block.json           Metadata, attributes, supports, assets
-│   ├── index.js             Registration
-│   ├── edit.js              Editor UI (toolbar + sidebar panels)
-│   ├── save.js              Saves only InnerBlocks content
-│   ├── render.php           Template that calls sticky_bar_block_render()
-│   ├── variations.js        Announcement / Promotion / CTA / Free Shipping presets
-│   ├── view.js              Close button + dismissal memory (vanilla JS)
-│   ├── style.scss           Frontend + editor styles
-│   └── editor.scss          Editor-only styles
-├── languages/               Translation template
-├── readme.txt               WordPress.org readme
+│   ├── block.json                    Metadata, attributes, supports, assets
+│   ├── index.js                      Registration
+│   ├── edit.js                       Editor UI (toolbar + sidebar panels)
+│   ├── save.js                       Saves only InnerBlocks content
+│   ├── render.php                    Template that calls nsbb_render()
+│   ├── variations.js                 Announcement / Promotion / CTA / Free Shipping presets
+│   ├── view.js                       Close button + dismissal memory (vanilla JS)
+│   ├── style.scss                    Frontend + editor styles
+│   └── editor.scss                   Editor-only styles
+├── languages/                        Translation template
+├── readme.txt                        WordPress.org readme
 └── uninstall.php
 ```
 

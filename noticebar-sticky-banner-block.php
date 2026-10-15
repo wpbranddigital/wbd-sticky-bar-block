@@ -1,27 +1,27 @@
 <?php
 /**
- * Plugin Name:       WBD Sticky Bar Block
+ * Plugin Name:       NoticeBar Sticky Banner Block
  * Description:       Create sticky announcement, promotion, and CTA bars directly in the WordPress Block Editor.
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            WPBrand Digital
  * Author URI:        https://wpbranddigital.org
- * License:           GPLv2 or laterc
+ * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wbd-sticky-bar-block
+ * Text Domain:       noticebar-sticky-banner-block
  * Domain Path:       /languages
  *
- * @package WBDStickyBarBlock
+ * @package NoticeBarStickyBannerBlock
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STICKY_BAR_BLOCK_VERSION', '1.0.0' );
-define( 'STICKY_BAR_BLOCK_PATH', plugin_dir_path( __FILE__ ) );
+define( 'NSBB_VERSION', '1.0.0' );
+define( 'NSBB_PATH', plugin_dir_path( __FILE__ ) );
 
-require_once STICKY_BAR_BLOCK_PATH . 'includes/helpers.php';
-require_once STICKY_BAR_BLOCK_PATH . 'includes/render.php';
+require_once NSBB_PATH . 'includes/helpers.php';
+require_once NSBB_PATH . 'includes/render.php';
 
 /**
  * Registers the Sticky Bar block from its block.json metadata.
@@ -31,7 +31,7 @@ require_once STICKY_BAR_BLOCK_PATH . 'includes/render.php';
  *
  * @return void
  */
-function sticky_bar_block_register_block() {
-	register_block_type( STICKY_BAR_BLOCK_PATH . 'build/sticky-bar' );
+function nsbb_register_block() {
+	register_block_type( NSBB_PATH . 'build/sticky-bar' );
 }
-add_action( 'init', 'sticky_bar_block_register_block' );
+add_action( 'init', 'nsbb_register_block' );

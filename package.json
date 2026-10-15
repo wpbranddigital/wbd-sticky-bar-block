@@ -1,8 +1,8 @@
 {
-	"name": "wbd-sticky-bar-block",
+	"name": "noticebar-sticky-banner-block",
 	"version": "1.0.0",
 	"description": "Create sticky announcement, promotion, and CTA bars directly in the WordPress Block Editor.",
-	"author": "bPlugins",
+	"author": "WPBrand Digital",
 	"license": "GPL-2.0-or-later",
 	"main": "build/sticky-bar/index.js",
 	"files": [
@@ -11,7 +11,7 @@
 		"languages",
 		"src",
 		"readme.txt",
-		"wbd-sticky-bar-block.php",
+		"noticebar-sticky-banner-block.php",
 		"uninstall.php"
 	],
 	"scripts": {

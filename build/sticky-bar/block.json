@@ -13,7 +13,7 @@
     "promotion",
     "cta"
   ],
-  "textdomain": "wbd-sticky-bar-block",
+  "textdomain": "noticebar-sticky-banner-block",
   "attributes": {
     "barId": {
       "type": "string",

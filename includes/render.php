@@ -2,7 +2,7 @@
 /**
  * Server-side rendering for the Sticky Bar block.
  *
- * @package StickyBarBlock
+ * @package NoticeBarStickyBannerBlock
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -18,19 +18,19 @@ defined( 'ABSPATH' ) || exit;
  * @param string $content    Rendered inner blocks.
  * @return string Block HTML.
  */
-function sticky_bar_block_render( $attributes, $content ) {
+function nsbb_render( $attributes, $content ) {
 	$attributes = is_array( $attributes ) ? $attributes : array();
 	$content    = is_string( $content ) ? $content : '';
 
-	$position      = sticky_bar_block_enum( $attributes, 'position', array( 'top', 'bottom' ), 'top' );
-	$justification = sticky_bar_block_enum( $attributes, 'contentJustification', array( 'left', 'center', 'right', 'space-between' ), 'center' );
-	$animation     = sticky_bar_block_enum( $attributes, 'animation', array( 'none', 'fade', 'slide' ), 'slide' );
-	$dismiss       = sticky_bar_block_enum( $attributes, 'dismissMemory', array( 'none', 'session', 'local' ), 'session' );
+	$position      = nsbb_enum( $attributes, 'position', array( 'top', 'bottom' ), 'top' );
+	$justification = nsbb_enum( $attributes, 'contentJustification', array( 'left', 'center', 'right', 'space-between' ), 'center' );
+	$animation     = nsbb_enum( $attributes, 'animation', array( 'none', 'fade', 'slide' ), 'slide' );
+	$dismiss       = nsbb_enum( $attributes, 'dismissMemory', array( 'none', 'session', 'local' ), 'session' );
 
-	$offset    = sticky_bar_block_clamp_int( isset( $attributes['offset'] ) ? $attributes['offset'] : 0, 0, 200, 0 );
-	$z_index   = sticky_bar_block_clamp_int( isset( $attributes['zIndex'] ) ? $attributes['zIndex'] : 999, 1, 99998, 999 );
-	$gap       = sticky_bar_block_clamp_int( isset( $attributes['gap'] ) ? $attributes['gap'] : 16, 0, 80, 16 );
-	$max_width = sticky_bar_block_clamp_int( isset( $attributes['contentMaxWidth'] ) ? $attributes['contentMaxWidth'] : 0, 0, 1920, 0 );
+	$offset    = nsbb_clamp_int( isset( $attributes['offset'] ) ? $attributes['offset'] : 0, 0, 200, 0 );
+	$z_index   = nsbb_clamp_int( isset( $attributes['zIndex'] ) ? $attributes['zIndex'] : 999, 1, 99998, 999 );
+	$gap       = nsbb_clamp_int( isset( $attributes['gap'] ) ? $attributes['gap'] : 16, 0, 80, 16 );
+	$max_width = nsbb_clamp_int( isset( $attributes['contentMaxWidth'] ) ? $attributes['contentMaxWidth'] : 0, 0, 1920, 0 );
 
 	$show_cta   = ! isset( $attributes['showCta'] ) || ! empty( $attributes['showCta'] );
 	$show_close = ! isset( $attributes['showClose'] ) || ! empty( $attributes['showClose'] );
@@ -42,7 +42,7 @@ function sticky_bar_block_render( $attributes, $content ) {
 
 	$region_label = isset( $attributes['ariaLabel'] ) ? trim( sanitize_text_field( $attributes['ariaLabel'] ) ) : '';
 	if ( '' === $region_label ) {
-		$region_label = __( 'Announcement', 'wbd-sticky-bar-block' );
+		$region_label = __( 'Announcement', 'noticebar-sticky-banner-block' );
 	}
 
 	// Wrapper classes.
@@ -99,29 +99,29 @@ function sticky_bar_block_render( $attributes, $content ) {
 	if ( $show_cta && '' !== trim( $cta_text ) && '' !== $cta_url ) {
 		$cta_styles = array();
 
-		$cta_bg = sticky_bar_block_sanitize_color( isset( $attributes['ctaBackgroundColor'] ) ? $attributes['ctaBackgroundColor'] : '' );
+		$cta_bg = nsbb_sanitize_color( isset( $attributes['ctaBackgroundColor'] ) ? $attributes['ctaBackgroundColor'] : '' );
 		if ( '' !== $cta_bg ) {
 			$cta_styles[] = 'background-color:' . $cta_bg;
 		}
 
-		$cta_color = sticky_bar_block_sanitize_color( isset( $attributes['ctaTextColor'] ) ? $attributes['ctaTextColor'] : '' );
+		$cta_color = nsbb_sanitize_color( isset( $attributes['ctaTextColor'] ) ? $attributes['ctaTextColor'] : '' );
 		if ( '' !== $cta_color ) {
 			$cta_styles[] = 'color:' . $cta_color;
 		}
 
-		$cta_styles[] = sprintf( 'border-radius:%dpx', sticky_bar_block_clamp_int( isset( $attributes['ctaBorderRadius'] ) ? $attributes['ctaBorderRadius'] : 4, 0, 999, 4 ) );
+		$cta_styles[] = sprintf( 'border-radius:%dpx', nsbb_clamp_int( isset( $attributes['ctaBorderRadius'] ) ? $attributes['ctaBorderRadius'] : 4, 0, 999, 4 ) );
 		$cta_styles[] = sprintf(
 			'padding:%1$dpx %2$dpx',
-			sticky_bar_block_clamp_int( isset( $attributes['ctaPaddingY'] ) ? $attributes['ctaPaddingY'] : 8, 0, 40, 8 ),
-			sticky_bar_block_clamp_int( isset( $attributes['ctaPaddingX'] ) ? $attributes['ctaPaddingX'] : 16, 0, 80, 16 )
+			nsbb_clamp_int( isset( $attributes['ctaPaddingY'] ) ? $attributes['ctaPaddingY'] : 8, 0, 40, 8 ),
+			nsbb_clamp_int( isset( $attributes['ctaPaddingX'] ) ? $attributes['ctaPaddingX'] : 16, 0, 80, 16 )
 		);
 
-		$cta_font_size = sticky_bar_block_sanitize_font_size( isset( $attributes['ctaFontSize'] ) ? $attributes['ctaFontSize'] : '' );
+		$cta_font_size = nsbb_sanitize_font_size( isset( $attributes['ctaFontSize'] ) ? $attributes['ctaFontSize'] : '' );
 		if ( '' !== $cta_font_size ) {
 			$cta_styles[] = 'font-size:' . $cta_font_size;
 		}
 
-		$cta_font_weight = sticky_bar_block_sanitize_font_weight( isset( $attributes['ctaFontWeight'] ) ? $attributes['ctaFontWeight'] : '' );
+		$cta_font_weight = nsbb_sanitize_font_weight( isset( $attributes['ctaFontWeight'] ) ? $attributes['ctaFontWeight'] : '' );
 		if ( '' !== $cta_font_weight ) {
 			$cta_styles[] = 'font-weight:' . $cta_font_weight;
 		}
@@ -129,7 +129,7 @@ function sticky_bar_block_render( $attributes, $content ) {
 		$new_tab      = ! empty( $attributes['ctaNewTab'] );
 		$target_attrs = $new_tab ? ' target="_blank" rel="noopener noreferrer"' : '';
 		$new_tab_text = $new_tab
-			? '<span class="screen-reader-text">' . esc_html__( '(opens in a new tab)', 'wbd-sticky-bar-block' ) . '</span>'
+			? '<span class="screen-reader-text">' . esc_html__( '(opens in a new tab)', 'noticebar-sticky-banner-block' ) . '</span>'
 			: '';
 
 		$cta_html = sprintf(
@@ -146,15 +146,15 @@ function sticky_bar_block_render( $attributes, $content ) {
 	// JavaScript never see a button that does nothing.
 	$close_html = '';
 	if ( $show_close ) {
-		$icon_size  = sticky_bar_block_clamp_int( isset( $attributes['closeIconSize'] ) ? $attributes['closeIconSize'] : 20, 12, 48, 20 );
-		$icon_color = sticky_bar_block_sanitize_color( isset( $attributes['closeIconColor'] ) ? $attributes['closeIconColor'] : '' );
+		$icon_size  = nsbb_clamp_int( isset( $attributes['closeIconSize'] ) ? $attributes['closeIconSize'] : 20, 12, 48, 20 );
+		$icon_color = nsbb_sanitize_color( isset( $attributes['closeIconColor'] ) ? $attributes['closeIconColor'] : '' );
 
 		$close_html = sprintf(
 			'<button type="button" class="sbb-close" aria-label="%1$s"%2$s hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="%3$d" height="%3$d" aria-hidden="true" focusable="false"><path d="M13.06 12l5.47-5.47-1.06-1.06L12 10.94 6.53 5.47 5.47 6.53 10.94 12l-5.47 5.47 1.06 1.06L12 13.06l5.47 5.47 1.06-1.06L13.06 12z"/></svg></button>',
 			esc_attr(
 				sprintf(
 					/* translators: %s: accessible name of the bar, e.g. "Announcement". */
-					__( 'Close %s', 'wbd-sticky-bar-block' ),
+					__( 'Close %s', 'noticebar-sticky-banner-block' ),
 					$region_label
 				)
 			),

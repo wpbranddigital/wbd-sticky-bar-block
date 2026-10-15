@@ -36,7 +36,10 @@ const TEMPLATE = [
 	[
 		'core/paragraph',
 		{
-			placeholder: __( 'Write your announcement…', 'wbd-sticky-bar-block' ),
+			placeholder: __(
+				'Write your announcement…',
+				'noticebar-sticky-banner-block'
+			),
 		},
 	],
 ];
@@ -48,12 +51,27 @@ const TEMPLATE = [
 const barIdOwners = new Map();
 
 const FONT_WEIGHTS = [
-	{ label: __( 'Default', 'wbd-sticky-bar-block' ), value: '' },
-	{ label: __( 'Regular (400)', 'wbd-sticky-bar-block' ), value: '400' },
-	{ label: __( 'Medium (500)', 'wbd-sticky-bar-block' ), value: '500' },
-	{ label: __( 'Semi-bold (600)', 'wbd-sticky-bar-block' ), value: '600' },
-	{ label: __( 'Bold (700)', 'wbd-sticky-bar-block' ), value: '700' },
-	{ label: __( 'Extra-bold (800)', 'wbd-sticky-bar-block' ), value: '800' },
+	{ label: __( 'Default', 'noticebar-sticky-banner-block' ), value: '' },
+	{
+		label: __( 'Regular (400)', 'noticebar-sticky-banner-block' ),
+		value: '400',
+	},
+	{
+		label: __( 'Medium (500)', 'noticebar-sticky-banner-block' ),
+		value: '500',
+	},
+	{
+		label: __( 'Semi-bold (600)', 'noticebar-sticky-banner-block' ),
+		value: '600',
+	},
+	{
+		label: __( 'Bold (700)', 'noticebar-sticky-banner-block' ),
+		value: '700',
+	},
+	{
+		label: __( 'Extra-bold (800)', 'noticebar-sticky-banner-block' ),
+		value: '800',
+	},
 ];
 
 export default function Edit( {
@@ -154,19 +172,19 @@ export default function Edit( {
 	};
 
 	const hiddenOn = [
-		hideOnDesktop && __( 'desktop', 'wbd-sticky-bar-block' ),
-		hideOnTablet && __( 'tablet', 'wbd-sticky-bar-block' ),
-		hideOnMobile && __( 'mobile', 'wbd-sticky-bar-block' ),
+		hideOnDesktop && __( 'desktop', 'noticebar-sticky-banner-block' ),
+		hideOnTablet && __( 'tablet', 'noticebar-sticky-banner-block' ),
+		hideOnMobile && __( 'mobile', 'noticebar-sticky-banner-block' ),
 	].filter( Boolean );
 
 	const positionLabel =
 		'top' === position
-			? __( 'Top', 'wbd-sticky-bar-block' )
-			: __( 'Bottom', 'wbd-sticky-bar-block' );
+			? __( 'Top', 'noticebar-sticky-banner-block' )
+			: __( 'Bottom', 'noticebar-sticky-banner-block' );
 
 	let badge = sprintf(
 		/* translators: %s: bar position, e.g. Top or Bottom. */
-		__( 'Sticky bar · %s', 'wbd-sticky-bar-block' ),
+		__( 'Sticky bar · %s', 'noticebar-sticky-banner-block' ),
 		positionLabel
 	);
 	if ( hiddenOn.length ) {
@@ -174,7 +192,7 @@ export default function Edit( {
 			' · ' +
 			sprintf(
 				/* translators: %s: comma-separated list of devices. */
-				__( 'Hidden on %s', 'wbd-sticky-bar-block' ),
+				__( 'Hidden on %s', 'noticebar-sticky-banner-block' ),
 				hiddenOn.join( ', ' )
 			);
 	}
@@ -199,13 +217,19 @@ export default function Edit( {
 				<ToolbarGroup>
 					<ToolbarButton
 						icon="arrow-up-alt"
-						label={ __( 'Stick to top', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Stick to top',
+							'noticebar-sticky-banner-block'
+						) }
 						isPressed={ 'top' === position }
 						onClick={ () => setAttributes( { position: 'top' } ) }
 					/>
 					<ToolbarButton
 						icon="arrow-down-alt"
-						label={ __( 'Stick to bottom', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Stick to bottom',
+							'noticebar-sticky-banner-block'
+						) }
 						isPressed={ 'bottom' === position }
 						onClick={ () =>
 							setAttributes( { position: 'bottom' } )
@@ -216,20 +240,32 @@ export default function Edit( {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Sticky settings', 'wbd-sticky-bar-block' ) }
+					title={ __(
+						'Sticky settings',
+						'noticebar-sticky-banner-block'
+					) }
 				>
 					<SelectControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Position', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Position',
+							'noticebar-sticky-banner-block'
+						) }
 						value={ position }
 						options={ [
 							{
-								label: __( 'Top', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Top',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'top',
 							},
 							{
-								label: __( 'Bottom', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Bottom',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'bottom',
 							},
 						] }
@@ -240,10 +276,13 @@ export default function Edit( {
 					<RangeControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Offset (px)', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Offset (px)',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Distance from the edge of the screen.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						value={ offset }
 						min={ 0 }
@@ -255,10 +294,13 @@ export default function Edit( {
 					<RangeControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Z-index', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Z-index',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Raise this only if the bar appears behind other elements.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						value={ zIndex }
 						min={ 1 }
@@ -272,11 +314,11 @@ export default function Edit( {
 							__nextHasNoMarginBottom
 							label={ __(
 								'Stay below the admin toolbar',
-								'wbd-sticky-bar-block'
+								'noticebar-sticky-banner-block'
 							) }
 							help={ __(
 								'Adds space for the WordPress toolbar when you are logged in.',
-								'wbd-sticky-bar-block'
+								'noticebar-sticky-banner-block'
 							) }
 							checked={ adminBarOffset }
 							onChange={ ( value ) =>
@@ -287,23 +329,35 @@ export default function Edit( {
 					<SelectControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Entrance animation', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Entrance animation',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Animations are turned off for visitors who prefer reduced motion.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						value={ animation }
 						options={ [
 							{
-								label: __( 'None', 'wbd-sticky-bar-block' ),
+								label: __(
+									'None',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'none',
 							},
 							{
-								label: __( 'Fade', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Fade',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'fade',
 							},
 							{
-								label: __( 'Slide', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Slide',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'slide',
 							},
 						] }
@@ -314,31 +368,43 @@ export default function Edit( {
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Layout', 'wbd-sticky-bar-block' ) }
+					title={ __( 'Layout', 'noticebar-sticky-banner-block' ) }
 					initialOpen={ false }
 				>
 					<SelectControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Content alignment', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Content alignment',
+							'noticebar-sticky-banner-block'
+						) }
 						value={ contentJustification }
 						options={ [
 							{
-								label: __( 'Left', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Left',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'left',
 							},
 							{
-								label: __( 'Center', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Center',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'center',
 							},
 							{
-								label: __( 'Right', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Right',
+									'noticebar-sticky-banner-block'
+								),
 								value: 'right',
 							},
 							{
 								label: __(
 									'Space between',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								),
 								value: 'space-between',
 							},
@@ -350,7 +416,10 @@ export default function Edit( {
 					<RangeControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Gap (px)', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Gap (px)',
+							'noticebar-sticky-banner-block'
+						) }
 						value={ gap }
 						min={ 0 }
 						max={ 80 }
@@ -363,11 +432,11 @@ export default function Edit( {
 						__next40pxDefaultSize
 						label={ __(
 							'Content max width (px)',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						help={ __(
 							'Set to 0 to use the full width.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						value={ contentMaxWidth }
 						min={ 0 }
@@ -379,7 +448,10 @@ export default function Edit( {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Stack on mobile', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Stack on mobile',
+							'noticebar-sticky-banner-block'
+						) }
 						checked={ stackOnMobile }
 						onChange={ ( value ) =>
 							setAttributes( { stackOnMobile: value } )
@@ -388,12 +460,18 @@ export default function Edit( {
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Call to action', 'wbd-sticky-bar-block' ) }
+					title={ __(
+						'Call to action',
+						'noticebar-sticky-banner-block'
+					) }
 					initialOpen={ false }
 				>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Show button', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Show button',
+							'noticebar-sticky-banner-block'
+						) }
 						checked={ showCta }
 						onChange={ ( value ) =>
 							setAttributes( { showCta: value } )
@@ -404,13 +482,16 @@ export default function Edit( {
 							<p className="sbb-help">
 								{ __(
 									'Edit the button text directly in the bar.',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 							</p>
 							<div className="sbb-url-control">
 								<URLInput
 									__nextHasNoMarginBottom
-									label={ __( 'URL', 'wbd-sticky-bar-block' ) }
+									label={ __(
+										'URL',
+										'noticebar-sticky-banner-block'
+									) }
 									value={ ctaUrl }
 									onChange={ ( value ) =>
 										setAttributes( { ctaUrl: value } )
@@ -424,7 +505,7 @@ export default function Edit( {
 								>
 									{ __(
 										'Add a URL to display the button on your site.',
-										'wbd-sticky-bar-block'
+										'noticebar-sticky-banner-block'
 									) }
 								</Notice>
 							) }
@@ -432,7 +513,7 @@ export default function Edit( {
 								__nextHasNoMarginBottom
 								label={ __(
 									'Open in new tab',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								checked={ ctaNewTab }
 								onChange={ ( value ) =>
@@ -444,7 +525,7 @@ export default function Edit( {
 								__next40pxDefaultSize
 								label={ __(
 									'Border radius (px)',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ ctaBorderRadius }
 								min={ 0 }
@@ -460,7 +541,7 @@ export default function Edit( {
 								__next40pxDefaultSize
 								label={ __(
 									'Vertical padding (px)',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ ctaPaddingY }
 								min={ 0 }
@@ -474,7 +555,7 @@ export default function Edit( {
 								__next40pxDefaultSize
 								label={ __(
 									'Horizontal padding (px)',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ ctaPaddingX }
 								min={ 0 }
@@ -501,7 +582,7 @@ export default function Edit( {
 								__next40pxDefaultSize
 								label={ __(
 									'Font weight',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ ctaFontWeight }
 								options={ FONT_WEIGHTS }
@@ -515,11 +596,17 @@ export default function Edit( {
 
 				{ showCta && (
 					<PanelColorSettings
-						title={ __( 'Button colors', 'wbd-sticky-bar-block' ) }
+						title={ __(
+							'Button colors',
+							'noticebar-sticky-banner-block'
+						) }
 						initialOpen={ false }
 						colorSettings={ [
 							{
-								label: __( 'Background', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Background',
+									'noticebar-sticky-banner-block'
+								),
 								value: ctaBackgroundColor,
 								onChange: ( value ) =>
 									setAttributes( {
@@ -527,7 +614,10 @@ export default function Edit( {
 									} ),
 							},
 							{
-								label: __( 'Text', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Text',
+									'noticebar-sticky-banner-block'
+								),
 								value: ctaTextColor,
 								onChange: ( value ) =>
 									setAttributes( {
@@ -539,12 +629,18 @@ export default function Edit( {
 				) }
 
 				<PanelBody
-					title={ __( 'Close button', 'wbd-sticky-bar-block' ) }
+					title={ __(
+						'Close button',
+						'noticebar-sticky-banner-block'
+					) }
 					initialOpen={ false }
 				>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Show close button', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Show close button',
+							'noticebar-sticky-banner-block'
+						) }
 						checked={ showClose }
 						onChange={ ( value ) =>
 							setAttributes( { showClose: value } )
@@ -557,7 +653,7 @@ export default function Edit( {
 								__next40pxDefaultSize
 								label={ __(
 									'Icon size (px)',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ closeIconSize }
 								min={ 12 }
@@ -573,28 +669,28 @@ export default function Edit( {
 								__next40pxDefaultSize
 								label={ __(
 									'After closing',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ dismissMemory }
 								options={ [
 									{
 										label: __(
 											'Show again on next page load',
-											'wbd-sticky-bar-block'
+											'noticebar-sticky-banner-block'
 										),
 										value: 'none',
 									},
 									{
 										label: __(
 											'Keep hidden for the browser session',
-											'wbd-sticky-bar-block'
+											'noticebar-sticky-banner-block'
 										),
 										value: 'session',
 									},
 									{
 										label: __(
 											'Keep hidden on this device',
-											'wbd-sticky-bar-block'
+											'noticebar-sticky-banner-block'
 										),
 										value: 'local',
 									},
@@ -609,11 +705,17 @@ export default function Edit( {
 
 				{ showClose && (
 					<PanelColorSettings
-						title={ __( 'Close icon color', 'wbd-sticky-bar-block' ) }
+						title={ __(
+							'Close icon color',
+							'noticebar-sticky-banner-block'
+						) }
 						initialOpen={ false }
 						colorSettings={ [
 							{
-								label: __( 'Icon', 'wbd-sticky-bar-block' ),
+								label: __(
+									'Icon',
+									'noticebar-sticky-banner-block'
+								),
 								value: closeIconColor,
 								onChange: ( value ) =>
 									setAttributes( {
@@ -625,15 +727,21 @@ export default function Edit( {
 				) }
 
 				<PanelBody
-					title={ __( 'Visibility', 'wbd-sticky-bar-block' ) }
+					title={ __(
+						'Visibility',
+						'noticebar-sticky-banner-block'
+					) }
 					initialOpen={ false }
 				>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Hide on desktop', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Hide on desktop',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Screens wider than 1024px.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						checked={ hideOnDesktop }
 						onChange={ ( value ) =>
@@ -642,10 +750,13 @@ export default function Edit( {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Hide on tablet', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Hide on tablet',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Screens 600px–1024px wide.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						checked={ hideOnTablet }
 						onChange={ ( value ) =>
@@ -654,10 +765,13 @@ export default function Edit( {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Hide on mobile', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Hide on mobile',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Screens narrower than 600px.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						checked={ hideOnMobile }
 						onChange={ ( value ) =>
@@ -667,16 +781,22 @@ export default function Edit( {
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Accessibility', 'wbd-sticky-bar-block' ) }
+					title={ __(
+						'Accessibility',
+						'noticebar-sticky-banner-block'
+					) }
 					initialOpen={ false }
 				>
 					<TextControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Region label', 'wbd-sticky-bar-block' ) }
+						label={ __(
+							'Region label',
+							'noticebar-sticky-banner-block'
+						) }
 						help={ __(
 							'Announced by screen readers. Defaults to “Announcement”.',
-							'wbd-sticky-bar-block'
+							'noticebar-sticky-banner-block'
 						) }
 						value={ ariaLabel }
 						onChange={ ( value ) =>
@@ -698,11 +818,11 @@ export default function Edit( {
 								tagName="span"
 								aria-label={ __(
 									'Button text',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								placeholder={ __(
 									'Add text…',
-									'wbd-sticky-bar-block'
+									'noticebar-sticky-banner-block'
 								) }
 								value={ ctaText }
 								onChange={ ( value ) =>

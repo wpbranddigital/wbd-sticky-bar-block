@@ -2,7 +2,7 @@
 /**
  * Helper functions used when rendering the Sticky Bar block.
  *
- * @package StickyBarBlock
+ * @package NoticeBarStickyBannerBlock
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * @param mixed $color Raw color value.
  * @return string Safe color value or empty string.
  */
-function sticky_bar_block_sanitize_color( $color ) {
+function nsbb_sanitize_color( $color ) {
 	if ( ! is_string( $color ) ) {
 		return '';
 	}
@@ -51,7 +51,7 @@ function sticky_bar_block_sanitize_color( $color ) {
  * @param mixed $size Raw font-size value.
  * @return string Safe font-size value or empty string.
  */
-function sticky_bar_block_sanitize_font_size( $size ) {
+function nsbb_sanitize_font_size( $size ) {
 	if ( is_int( $size ) || is_float( $size ) ) {
 		$size = $size . 'px';
 	}
@@ -83,7 +83,7 @@ function sticky_bar_block_sanitize_font_size( $size ) {
  * @param mixed $weight Raw font-weight.
  * @return string Safe font-weight or empty string.
  */
-function sticky_bar_block_sanitize_font_weight( $weight ) {
+function nsbb_sanitize_font_weight( $weight ) {
 	$allowed = array( '100', '200', '300', '400', '500', '600', '700', '800', '900', 'normal', 'bold' );
 
 	return in_array( (string) $weight, $allowed, true ) ? (string) $weight : '';
@@ -98,7 +98,7 @@ function sticky_bar_block_sanitize_font_weight( $weight ) {
  * @param int   $fallback Value to use when the input is not numeric.
  * @return int
  */
-function sticky_bar_block_clamp_int( $value, $min, $max, $fallback ) {
+function nsbb_clamp_int( $value, $min, $max, $fallback ) {
 	if ( ! is_numeric( $value ) ) {
 		return (int) $fallback;
 	}
@@ -115,7 +115,7 @@ function sticky_bar_block_clamp_int( $value, $min, $max, $fallback ) {
  * @param string $fallback   Fallback value.
  * @return string
  */
-function sticky_bar_block_enum( $attributes, $key, $allowed, $fallback ) {
+function nsbb_enum( $attributes, $key, $allowed, $fallback ) {
 	$value = isset( $attributes[ $key ] ) ? $attributes[ $key ] : $fallback;
 
 	return in_array( $value, $allowed, true ) ? $value : $fallback;

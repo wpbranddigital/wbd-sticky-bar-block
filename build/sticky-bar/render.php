@@ -2,7 +2,7 @@
 /**
  * Frontend render template for the Sticky Bar block.
  *
- * @package StickyBarBlock
+ * @package NoticeBarStickyBannerBlock
  *
  * @var array    $attributes Block attributes.
  * @var string   $content    Rendered inner blocks.
@@ -11,5 +11,5 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- All output is escaped inside sticky_bar_block_render().
-echo sticky_bar_block_render( $attributes, $content );
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- All output is escaped inside nsbb_render().
+echo nsbb_render( $attributes, $content );
