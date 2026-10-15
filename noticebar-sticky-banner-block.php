@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       NoticeBar Sticky Banner Block
  * Description:       Create sticky announcement, promotion, and CTA bars directly in the WordPress Block Editor.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            WPBrand Digital
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NSBB_VERSION', '1.0.0' );
+define( 'NSBB_VERSION', '1.0.1' );
 define( 'NSBB_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once NSBB_PATH . 'includes/helpers.php';

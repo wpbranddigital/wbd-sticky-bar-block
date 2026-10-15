@@ -4,7 +4,7 @@ Tags: sticky bar, announcement bar, notification bar, promotion, cta
 Requires at least: 6.5
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -87,10 +87,15 @@ No. The plugin does not create options, tables or cookies. Bars are saved as blo
 
 == Changelog ==
 
+= 1.0.1 =
+* Renamed plugin display name and slug to NoticeBar Sticky Banner Block to prevent naming conflicts.
+* Updated text domain and localization strings.
+
 = 1.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-Initial release.
+= 1.0.1 =
+Updated release with revised plugin slug and naming.
+
